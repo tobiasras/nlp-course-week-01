@@ -19,9 +19,7 @@ async def root():
 def analyze_sentiment(payload: TextInput):
     score_en = afinn_en.score(payload.text)
     score_dk = afinn_da.score(payload.text)
-    
     score = (score_dk + score_en) / 2
-    
     return {"score": score}
 
 if __name__ == "__main__":
